@@ -12,7 +12,6 @@ $codeceptPath = CURRENT_WORKIN_DIR . '/bin/codecept.phar';
  */
 function initTests(string $projectFolder)
 {
-    echo "php bin/codecept.phar bootstrap\n";
     chdir($projectFolder);
     exec("php bin/codecept.phar bootstrap");
 
@@ -29,6 +28,7 @@ function initTests(string $projectFolder)
         copy($copyFrom, $copyTo);
     }
 
+    echo 'успешно инициализировали codecept';
 }
 
 if(is_dir($testsFolder)){
