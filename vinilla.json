@@ -3,10 +3,13 @@
     "vendor": "CodingLiki",
     "description": "бандл инициализирует папку bin(если её ещё нет) скачивает туда бинарник codeception и, если нету папки tests инициализирует её с помощью 'php bin/codecept bootstrap'",
     "repo_url": "git@github.com:coding-liki/CodeceptionBundle.git",
-    "version": "0.2",
+    "version": "0.3",
     "scripts": {
         "install codecept to bin folder": {
             "name": "installToBin.php"
+        },
+        "init tests folder": {
+            "name": "initTestFolder.php"
         }
     }
 }
