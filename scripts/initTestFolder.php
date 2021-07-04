@@ -15,6 +15,20 @@ function initTests(string $projectFolder)
     echo "php bin/codecept.phar bootstrap\n";
     chdir($projectFolder);
     exec("php bin/codecept.phar bootstrap");
+
+    file_put_contents('codeception.yml','bootstrap:
+    bootstrap.php', FILE_APPEND);
+
+    $fileToCopy = [
+        'tests/bootstrap.php' => dirname(__DIR__).'filesToCopy/bootstrapRoot.php',
+        'tests/unit/bootstrap.php' => dirname(__DIR__).'filesToCopy/bootstrap.php',
+        'tests/functional/bootstrap.php' => dirname(__DIR__).'filesToCopy/bootstrap.php',
+    ];
+
+    foreach ($fileToCopy as $copyTo => $copyFrom){
+        copy($copyFrom, $copyTo);
+    }
+
 }
 
 if(is_dir($testsFolder)){
