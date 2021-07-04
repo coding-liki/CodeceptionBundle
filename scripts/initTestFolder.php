@@ -36,6 +36,9 @@ if(is_dir($testsFolder)){
     $answer = readline();
     if(in_array($answer, ['y', 'Y', 'yes', 'Yes'])){
         deleteDir($testsFolder);
+        if(is_file($projectFolder.'/codeception.yml')) {
+            unlink($projectFolder . '/codeception.yml');
+        }
         initTests($projectFolder);
     }
 } else {
